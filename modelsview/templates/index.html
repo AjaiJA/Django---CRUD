@@ -1,0 +1,14 @@
+{% comment %} item_id = models.UUIDField(unique=True)
+    item_name = models.CharField(max_length=50) 
+    quantity = models.IntegerField() 
+    rate = models.DecimalField(max_digits=7,decimal_places=2)
+    total_cost = models.DecimalField(max_digits=7,decimal_places=2)
+ {% endcomment %}
+{% include "header.html" %}
+    {% if view %}
+        {% include "content.html" %}
+    {% endif %}
+    {% if addItem %}
+        {% include "addItem.html" %}
+    {% endif %}
+{% include "footer.html" %}

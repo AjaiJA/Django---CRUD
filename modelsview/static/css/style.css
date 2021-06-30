@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: green; */
+    overflow: hidden;
+}
+
+.landing-container{
+    background: url('/static/images/img3.svg');
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    height:100vh;
+}
+
+.img-item-container{
+    position:relative;
+    top:10%;
+    padding-top:19px;
+    margin-left:-200px;
+    /* right:0; */
+    /* height:20vh;
+    width:200px; */
+    display:flex;
+    flex-direction:row;
+    /* float:right; */
+    text-align:center;
+    justify-content:center;
+    align-items: center; 
+    transform: rotate(-3deg);
+    transition: all 0.4s ease;
+    animation:put 1s ease-in;
+}
+
+@keyframes put{
+    0%{
+        transform:translateY(-300px);
+    }
+    90%{
+        transform:rotate(-5deg);
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    100%{
+        transform:rotate(5deg);
+    }
+}
+.add-item-form{
+    width:65%;
+    margin:auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.226);
+}
+
+.add-item-form h2{
+    color:rgba(0, 0, 0, 0.644);
+    font-size: 50px;
+    font-family: 'Jomhuria',cursive;
+}
+
+.total-cost-display{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 90px;
+    color:rgb(30, 255, 0);
+    text-align: center;
+    font-size:24px;
+}

@@ -1,0 +1,61 @@
+{% include "header.html" %}
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <br />
+            <form method="POST" action="/search-with-item-name/">
+                {% csrf_token %}
+                <div class="input-group searchbar">
+                    <input type="search" required class="form-control search_input" name="search-item" placeholder="Search...">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div><br />
+            </form>
+        </div> 
+    </div>
+    <div class="total-cost-items">
+        <div class="d-flex justify-content-evenly">
+            <button type="button" onclick="back()" class="btn btn-danger btn-lg">Back</button>
+            <script>
+                function back(){
+                    window.history.go(-1);
+                }
+            </script>
+            <a class="btn btn-primary btn-lg" href="/add-item/">Add Item</a>
+        </div><br />
+        <table style="width:70%;margin:auto;" class="table caption-top">
+            <caption>List of Items</caption>
+            <thead>
+                <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Total Costs</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ item.item_name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.rate }}</td>
+                        <td>{{ item.total_cost }}</td>
+                        <td><a class="btn btn-warning" href="/edit/{{ item.id }}"><i class="fas fa-edit"></i> Edit</a></td>
+                    </tr>
+                    {% empty %}
+                        <tr class='text-center'>
+                            <td colspan='14' style='border:none;line-height:50vh;'>No items Found</td>
+                        </tr>                     
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if totalCost %}
+            <p class="total-cost-display">Total cost of Available Product is :  {{totalCost}}
+        {% endif %}
+    </div>
+{% include "footer.html" %}
