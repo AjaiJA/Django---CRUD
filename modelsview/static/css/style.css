@@ -38,6 +38,14 @@ body{
     animation:put 1s ease-in;
 }
 
+/* .add-view-btn{
+    transition:all 0.3s ease;
+}
+
+.add-view-btn:hover{
+    transform:skewX(3px);
+} */
+
 @keyframes put{
     0%{
         transform:translateY(-300px);

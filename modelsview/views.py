@@ -68,6 +68,6 @@ def update(request,id):
 def searchByItemName(request):
     totalCost = Items.objects.aggregate(total=Sum('total_cost'))
     # distinct = Items.objects.values('item_name').distinct()
-    items = Items.objects.filter(item_name=request.POST.get('search-item'),quantity__gte=1,quantity__lte=10).all()
+    items = Items.objects.filter(item_name__icontains=request.POST.get('search-item'), quantity__gte=1, quantity__lte=10).all()
     print(items)
     return render(request, 'lists.html', {"totalCost": totalCost['total'], "items": items})
